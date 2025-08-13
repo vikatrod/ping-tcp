@@ -158,7 +158,7 @@ class TcpPingGUI:
             messagebox.showerror("Erro", "Verifique os campos: host, porta, timeout, intervalo e tentativas.")
             return
 
-        # Resolve DNS antes (opcional)
+        # Resolve DNS antes
         try:
             resolved = socket.gethostbyname(host)
         except socket.gaierror as e:
@@ -202,7 +202,7 @@ class TcpPingGUI:
                 self.fail += 1
                 self.log(f"#{i} Falha: {e}")
             self.update_stats_labels()
-            # Respeita intervalo, mas permite parar rápido
+            # Respeita intervalo, mas permite parar rapido
             if interval > 0:
                 for _ in range(int(interval * 10)):
                     if not self.running:
@@ -234,9 +234,9 @@ class TcpPingGUI:
         if not path:
             return
 
-        # Exporta log detalhado (linha a linha) + estatísticas
+        # Exporta log detalhado (linha a linha) + estatisticas
         try:
-            # Reconstrói linhas do Text
+            # Reconstroi linhas do Text
             content = self.text.get("1.0", "end").strip().splitlines()
             rows = []
             for line in content:
@@ -252,7 +252,7 @@ class TcpPingGUI:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    # Estilo básico
+    # Estilo basico
     try:
         from tkinter import ttk
         style = ttk.Style()

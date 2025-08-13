@@ -23,7 +23,6 @@ def main():
     interval = max(0.0, args.interval)
     timeout = max(0.001, args.timeout)
 
-    # Resolve para exibir IP (não aborta se falhar)
     try:
         resolved_ip = socket.gethostbyname(host)
         alvo = f"{host} ({resolved_ip})"
@@ -58,7 +57,6 @@ def main():
     except KeyboardInterrupt:
         print("\nInterrompido pelo usuário (Ctrl+C). Exibindo estatísticas parciais...")
 
-    # Estatísticas
     enviados = sucesso + falhas
     perda_pct = (falhas / enviados * 100.0) if enviados else 0.0
     print("\n--- Estatísticas TCP ---")
